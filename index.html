@@ -1,12 +1,317 @@
+```html
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=|, initial-scale=1.0">
-    <title>Paulin</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+   <title>Blog da Bicicleta</title>
+
+
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           background-color: #f2f2f2;
+           color: #333;
+       }
+
+
+       header {
+           background-color: #2e7d32;
+           color: white;
+           text-align: center;
+           padding: 25px;
+       }
+
+
+       nav {
+           background-color: #333;
+           text-align: center;
+           padding: 10px;
+       }
+
+
+       nav a {
+           color: white;
+           text-decoration: none;
+           margin: 15px;
+       }
+
+
+       nav a:hover {
+           color: #4caf50;
+       }
+
+
+       main {
+           max-width: 800px;
+           margin: 20px auto;
+           background-color: white;
+           padding: 20px;
+       }
+
+
+       article {
+           border-bottom: 1px solid #ddd;
+           padding-bottom: 20px;
+           margin-bottom: 20px;
+       }
+
+
+       article h2 {
+           color: #2e7d32;
+       }
+
+
+       .leia-mais {
+           color: #2e7d32;
+           cursor: pointer;
+           font-weight: bold;
+       }
+
+
+       .texto-extra {
+           display: none;
+       }
+
+
+       section {
+           margin-top: 40px;
+       }
+
+
+       footer {
+           background-color: #333;
+           color: white;
+           text-align: center;
+           padding: 15px;
+       }
+   </style>
 </head>
+
+
 <body>
-    <h1> Agora vai</h1>
-    <p>Aooooooo</p>
+
+
+   <header id="inicio">
+       <h1>🚲 Blog da Bicicleta</h1>
+       <p>Tudo sobre o mundo das bikes!</p>
+   </header>
+
+
+   <nav>
+       <a href="#inicio">Início</a>
+       <a href="#dicas">Dicas</a>
+       <a href="#bicicletas">Bicicletas</a>
+       <a href="#contato">Contato</a>
+   </nav>
+
+
+   <main>
+
+
+       <section id="dicas">
+
+
+           <h2>Dicas</h2>
+
+
+           <article>
+               <h2>5 dicas para cuidar da sua bicicleta</h2>
+
+
+               <p>
+                   Manter sua bicicleta limpa e bem regulada é importante
+                   para garantir segurança e aumentar a vida útil das peças.
+               </p>
+
+
+               <p class="texto-extra">
+                   1. Mantenha a corrente lubrificada.<br>
+                   2. Verifique os pneus.<br>
+                   3. Confira os freios.<br>
+                   4. Limpe a bicicleta regularmente.<br>
+                   5. Faça revisões quando necessário.
+               </p>
+
+
+               <p class="leia-mais" onclick="mostrarTexto(this)">
+                   Leia mais →
+               </p>
+           </article>
+
+
+           <article>
+               <h2>Por que andar de bicicleta?</h2>
+
+
+               <p>
+                   Andar de bicicleta é uma ótima forma de praticar exercícios,
+                   economizar dinheiro e ajudar o meio ambiente.
+               </p>
+
+
+               <p class="texto-extra">
+                   Além de ser uma atividade divertida, a bicicleta pode ser
+                   utilizada para passeios, exercícios e até mesmo para ir
+                   ao trabalho ou à escola.
+               </p>
+
+
+               <p class="leia-mais" onclick="mostrarTexto(this)">
+                   Leia mais →
+               </p>
+           </article>
+
+
+       </section>
+
+
+
+
+       <section id="bicicletas">
+
+
+           <h2>Bicicletas</h2>
+
+
+           <article>
+               <h2>Como escolher sua primeira bicicleta</h2>
+
+
+               <p>
+                   Existem vários tipos de bicicletas. Veja algumas dicas
+                   para escolher o modelo ideal para você.
+               </p>
+
+
+               <p class="texto-extra">
+                   Para escolher uma bicicleta, pense primeiro onde você
+                   pretende andar. Bicicletas urbanas são boas para a cidade,
+                   enquanto bicicletas de mountain bike são indicadas para
+                   trilhas e terrenos irregulares.
+               </p>
+
+
+               <p class="leia-mais" onclick="mostrarTexto(this)">
+                   Leia mais →
+               </p>
+           </article>
+
+
+       </section>
+
+
+
+
+       <section id="contato">
+
+
+           <h2>Contato</h2>
+
+
+           <p>Entre em contato com o Blog da Bicicleta:</p>
+
+
+           <form onsubmit="enviarFormulario(event)">
+
+
+               <label>Nome:</label><br>
+               <input type="text" id="nome" required>
+
+
+               <br><br>
+
+
+               <label>E-mail:</label><br>
+               <input type="email" id="email" required>
+
+
+               <br><br>
+
+
+               <label>Mensagem:</label><br>
+               <textarea id="mensagem" required></textarea>
+
+
+               <br><br>
+
+
+               <button type="submit">Enviar</button>
+
+
+           </form>
+
+
+           <p id="resultado"></p>
+
+
+       </section>
+
+
+   </main>
+
+
+   <footer>
+       <p>© 2026 Blog da Bicicleta</p>
+   </footer>
+
+
+
+
+   <script>
+
+
+       function mostrarTexto(elemento) {
+
+
+           let texto = elemento.previousElementSibling;
+
+
+           if (texto.style.display === "none" || texto.style.display === "") {
+
+
+               texto.style.display = "block";
+               elemento.innerHTML = "Mostrar menos ↑";
+
+
+           } else {
+
+
+               texto.style.display = "none";
+               elemento.innerHTML = "Leia mais →";
+
+
+           }
+       }
+
+
+
+
+       function enviarFormulario(event) {
+
+
+           event.preventDefault();
+
+
+           let nome = document.getElementById("nome").value;
+
+
+           document.getElementById("resultado").innerHTML =
+               "Obrigado, " + nome + "! Sua mensagem foi enviada.";
+
+
+           document.getElementById("nome").value = "";
+           document.getElementById("email").value = "";
+           document.getElementById("mensagem").value = "";
+       }
+
+
+   </script>
+
+
 </body>
 </html>
+```
